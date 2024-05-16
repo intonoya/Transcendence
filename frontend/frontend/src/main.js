@@ -6,14 +6,14 @@ import GameMode from './components/GameMode.js';
 import Tournament from './components/Tournament.js';
 import Settings from './components/Settings.js';
 import Multiplayer from './components/Multiplayer.js';
-import LoginPage from './components/LoginPage.js';
+import LoginPage, { signIn } from './components/LoginPage.js';
 import Customize from './components/Customize.js';
 import Sound from './components/Sound.js';
 import ResultTable from './components/ResultTable.js';
 
 import { script } from './izolda.js';
 import { register } from './izolda.js';
-import { authButton } from './components/Navbar.js';
+import Navbar from './components/Navbar.js';
 
 
 function findContent(text) {
@@ -133,10 +133,9 @@ async function buttonClickHandler(buttonText) {
 
         } else if (buttonText === "Start") {
             navigateTo('/tournament');
-
         } else if (buttonText === "Sign In") {
 			navigateTo('/login');
-        } else if (buttonText === "Logout") {
+		} else if (buttonText === "Logout") {
             deleteCookie('username');
             deleteCookie('X-Access-Token');
             deleteCookie('X-Refresh-Token');
@@ -147,7 +146,7 @@ async function buttonClickHandler(buttonText) {
             changeFieldColor();
             change3D();
             changeHit();
-            
+
         } else if (buttonText === "Sound") {
             const sound = new Sound();
             document.getElementById('menu').innerHTML = await sound.getHtml();
@@ -161,6 +160,7 @@ async function buttonClickHandler(buttonText) {
                 volume.style.width = x / width * 100 + '%';
             });  
         } else if (buttonText === "Auth") {
+            signIn();
             navigateTo('/');
             const loader = document.querySelector('.loader');
             loader.classList.remove('hidden');
@@ -172,7 +172,8 @@ async function buttonClickHandler(buttonText) {
         } else if (buttonText === "Results") {
             navigateTo('/results');
         }
-        authButton();
+        const navbar = Navbar();
+        await navbar.getHtml();
 
     }, 400);
     
@@ -187,7 +188,7 @@ async function buttonClickHandler(buttonText) {
     После этого вызывается функция router, которая обновляет содержимое
  */
 async function navigateTo(url) {
-    history.pushState(null, null, url);
+    history.replaceState(null, null, url);
     await router();
 };
 

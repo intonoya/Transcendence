@@ -8,7 +8,7 @@ import MenuButton from './MenuButton.js';
 // Send a POST request to the backend with the login from 
 // the input and the code from the url
 async function signIn() {
-	const backend_url = server_url;
+	const backend_url = "http://localhost:8000";
 	let login = document.getElementById('login').value;
 	let code = window.location.href.split('?code=')[1];
 
@@ -85,6 +85,8 @@ function loader_here() {
 	}, 400);
 }
 
+export { signIn };
+
 
 export default class LoginPage {
     constructor() {
@@ -93,7 +95,7 @@ export default class LoginPage {
 		// Register the functions
 		register(getCookie);
 		register(setCookie);
-		register(signIn);
+		//register(signIn);
 		register(loader_here, true);
 		this.button = new MenuButton("Exit");
 
@@ -120,7 +122,6 @@ export default class LoginPage {
 										class="ps-2 d-block border-0 text-black border-bottom rounded-1 mt-5 form-input"
 										style="width:15rem; height:40px; letter-spacing: 3px;"/>
 									<button
-										onclick="signIn()"
 										class="button_auth d-block btn btn-primary mt-2 mb-2 text-start"
 										style="width:15rem; height: 40px; letter-spacing:3px;">Auth</button>
 								</div>
