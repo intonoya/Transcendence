@@ -2,16 +2,16 @@ import { register } from "../izolda.js";
 import { getCookie, deleteCookie } from "../utils.js";
 import { navigateTo } from "../main.js";
 
-function logout() {
-	deleteCookie('username');
-	deleteCookie('X-Access-Token');
-	deleteCookie('X-Refresh-Token');
-	navigateTo('/');
-}
+//function logout() {
+//	deleteCookie('username');
+//	deleteCookie('X-Access-Token');
+//	deleteCookie('X-Refresh-Token');
+//	navigateTo('/');
+//}
 
-function toLogin() {
-	window.location.href = "api/v1/auth/intra/login/";
-}
+//function toLogin() {
+//	window.location.href = "api/v1/auth/intra/login/";
+//}
 
 function authButton() {
 	const auth_button = document.getElementById("auth_button");
@@ -19,11 +19,11 @@ function authButton() {
 	if (getCookie('username') != null) {
 		auth_button.innerHTML = `
 				<button class="btn btn-primary me-3">${getCookie('username')}</a>
-				<button class="btn btn-primary me-3" onclick="logout()">Logout</button>
+				<button id="button_auth" class="btn btn-primary button_auth me-3"">Logout</button>
 			`.trim();
 	} else {
 		auth_button.innerHTML = `
-				<button class="btn btn-primary me-3" onclick="toLogin()">Sign In</button>
+				<button id="button_auth" class="btn btn-primary me-3 button_auth"">Sign In</button>
 			`.trim();
 	};
 }
@@ -31,11 +31,7 @@ function authButton() {
 
 export default class {
 	constructor() {
-
-		// Register the functions
 		register(authButton, true);
-		register(toLogin);
-		register(logout);
 	}
 
 	async getHtml() {
@@ -48,7 +44,6 @@ export default class {
 			</div>
 		`;
 	}	
-	
 }
 
 export { authButton };
