@@ -6,6 +6,7 @@ export default class MainMenu {
             new MenuButton("New Game"),
             new MenuButton("About Us"),
             new MenuButton("Settings"),
+            new MenuButton("Chat"),
         ];
         document.title = 'Main';
     }

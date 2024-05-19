@@ -10,6 +10,7 @@ import LoginPage, { signIn } from './components/LoginPage.js';
 import Customize from './components/Customize.js';
 import Sound from './components/Sound.js';
 import ResultTable from './components/ResultTable.js';
+import GlobalChat from './components/GlobalChat.js';
 
 import { script } from './izolda.js';
 import { register } from './izolda.js';
@@ -130,7 +131,18 @@ async function buttonClickHandler(buttonText) {
 
         } else if (buttonText === "Two Players") {
             navigateTo('/twoplayers');
-
+        } else if (buttonText === "Chat") {
+            const chat = new GlobalChat();
+            document.getElementById('menu').innerHTML = await chat.getHtml();
+        } else if (buttonText === "Send") {
+            const input = document.querySelector('.chat-input');
+            if (input.value !== '') {
+                const message = {}
+                message.author = getCookie('username');
+                message.message = input.value;
+                input.value = '';
+                this.socket.send(JSON.stringify(message));
+            }
         } else if (buttonText === "Start") {
             navigateTo('/tournament');
         } else if (buttonText === "Sign In") {
