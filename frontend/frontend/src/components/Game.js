@@ -35,7 +35,7 @@ export default class Game {
                         <div class="col-lg-3 col-md-5">
                             <div id='scoreboard' class="rounded-top-5">
                                 <div id='playerNames' class="text_game fs-1 pt-4"></div>
-                                <div id='scores' class="text_game" style="color: #71357b!important">0-0</div>
+                                <div id='scores' class="text_game" style="color: #805EF6!important">0-0</div>
                                 <div id='winnerBoard' class="text_game fs-2">First to score 7 wins!</div>
                             </div>
                             ${tournamrnInputs}

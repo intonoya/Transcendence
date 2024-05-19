@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'chat.apps.ChatConfig',
     'intrauth.apps.IntrauthConfig',
+    'channels',
 ]
 
 MIDDLEWARE = [
@@ -75,9 +76,9 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'settings.wsgi.application'
+#WSGI_APPLICATION = 'settings.wsgi.application'
+ASGI_APPLICATION = "settings.asgi.application"
 
-# ASGI_APPLICATION = "settings.asgi.application"
 CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "channels.layers.InMemoryChannelLayer",
@@ -168,9 +169,11 @@ CORS_ALLOWED_HEADERS = [
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:8080',
     'http://localhost:8000',
+    'http://transcendence.am:8080',
 ] # If this is used, then not need to use `CORS_ALLOW_ALL_ORIGINS = True`
 CORS_ALLOWED_ORIGIN_REGEXES = [
     'http://localhost:8080',
     'http://localhost:8000',
+    'http://transcendence.am:8080',
 ]
 

@@ -12,9 +12,9 @@ import django
 
 from django.core.asgi import get_asgi_application
 
-from channels.sessions import SessionMiddlewareStack
+#from channels.sessions import SessionMiddlewareStack
 from channels.routing import ProtocolTypeRouter, URLRouter
-from channels.security.websocket import AllowedHostsOriginValidator
+#from channels.security.websocket import AllowedHostsOriginValidator
 from channels.auth import AuthMiddlewareStack
 from dotenv import load_dotenv
 
@@ -29,13 +29,16 @@ django.setup()
 application = ProtocolTypeRouter({
     "http": get_asgi_application(),
     "https": get_asgi_application(),
-    "websocket": AllowedHostsOriginValidator(
-        AuthMiddlewareStack(
-            SessionMiddlewareStack(
-                URLRouter(
-                    websocket_urlpatterns
-                    )
-                )
-            )
-        )
+    "websocket": AuthMiddlewareStack(
+        URLRouter(websocket_urlpatterns)
+    )
+    #"websocket": AllowedHostsOriginValidator(
+    #    AuthMiddlewareStack(
+    #        SessionMiddlewareStack(
+    #            URLRouter(
+    #                websocket_urlpatterns
+    #                )
+    #            )
+    #        )
+    #    )
 })
