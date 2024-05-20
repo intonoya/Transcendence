@@ -67,18 +67,6 @@ function change3D() {
 
 };
 
-// Deactivate other buttons//
-
-function deactivateOtherLanguageButtons(currentButton) {
-    const languageButtons = document.querySelectorAll('#buttonEnglish, #buttonRussian, #buttonUkrainian');
-    languageButtons.forEach(button => {
-        if (button !== currentButton) {
-            button.classList.remove('clickedColorEnglish', 'clickedColorRussian', 'clickedColorUkrainian');
-            button.classList.add('defaultColorEnglish', 'defaultColorRussian', 'defaultColorUkrainian');
-        }
-    });
-}
-
 // English Language //
 
 function changeEnglish() {
@@ -89,7 +77,6 @@ function changeEnglish() {
         buttonEnglish.classList.add('clickedColorEnglish');
     }
     buttonEnglish.addEventListener('click', e => {
-        deactivateOtherLanguageButtons(buttonEnglish);
         if (isEnglish) {
             buttonEnglish.classList.add('clickedColorEnglish');
             buttonEnglish.classList.remove('defaultColorEnglish');
@@ -111,7 +98,6 @@ function changeRussian() {
         buttonRussian.classList.add('clickedColorRussian');
     }
     buttonRussian.addEventListener('click', e => {
-        deactivateOtherLanguageButtons(buttonRussian);
         if (isRussian) {
             buttonRussian.classList.add('clickedColorRussian');
             buttonRussian.classList.remove('defaultColorRussian');
@@ -133,7 +119,6 @@ function changeUkrainian() {
         buttonUkrainian.classList.add('clickedColorUkrainian');
     }
     buttonUkrainian.addEventListener('click', e => {
-        deactivateOtherLanguageButtons(buttonUkrainian);
         if (isUkrainian) {
             buttonUkrainian.classList.add('clickedColorUkrainian');
             buttonUkrainian.classList.remove('defaultColorUkrainian');
@@ -181,7 +166,7 @@ async function buttonClickHandler(buttonText) {
         } else if (buttonText === "Main Menu" || buttonText === "Главное меню" || buttonText === "Головне меню") {
             const menu = new MainMenu();
             document.getElementById('menu').innerHTML = await menu.getHtml();
-            findContent("About Us");
+            findContent("About Us" || "О нас" || "Про нас");
 
         } else if (buttonText === "Game Mode" || buttonText === "Режим игры" || buttonText === "Режим гри") {
             const gameMode = new GameMode();
@@ -266,7 +251,7 @@ async function buttonClickHandler(buttonText) {
             }, 600);
             
 
-        } else if (buttonText === "Results" || buttonText === "Результаты" || buttonText === "Результати") {
+        } else if (buttonText === "Results") {
             navigateTo('/results');
         }
         const navbar = Navbar();

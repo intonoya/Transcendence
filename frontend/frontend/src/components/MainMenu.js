@@ -5,7 +5,7 @@ export default class MainMenu {
         if (isEnglish) {
             this.buttons = [
                 new MenuButton("New Game"),
-                new MenuButton("About Us"),
+                //new MenuButton("About Us"),
                 new MenuButton("Settings"),
                 new MenuButton("Chat"),
             ];
@@ -14,7 +14,7 @@ export default class MainMenu {
         else if (isRussian) {
             this.buttons = [
                 new MenuButton("Новая игра"),
-                new MenuButton("О нас"),
+                //new MenuButton("О нас"),
                 new MenuButton("Настройки"),
                 new MenuButton("Чат"),
             ];
@@ -23,7 +23,7 @@ export default class MainMenu {
         else if (isUkrainian) {
             this.buttons = [
                 new MenuButton("Нова гра"),
-                new MenuButton("Про нас"),
+                //new MenuButton("Про нас"),
                 new MenuButton("Налаштування"),
                 new MenuButton("Чат"),
             ];
