@@ -8,6 +8,7 @@ import Settings from './components/Settings.js';
 import Multiplayer from './components/Multiplayer.js';
 import LoginPage, { signIn } from './components/LoginPage.js';
 import Customize from './components/Customize.js';
+import Language from './components/Language.js';
 import Sound from './components/Sound.js';
 import ResultTable from './components/ResultTable.js';
 import GlobalChat from './components/GlobalChat.js';
@@ -64,6 +65,69 @@ function change3D() {
         }
     });
 
+};
+
+// English Language //
+
+function changeEnglish() {
+    const buttonEnglish = document.getElementById("buttonEnglish");
+    if (!isEnglish) {
+        buttonEnglish.classList.add('defaultColorEnglish');
+    } else {
+        buttonEnglish.classList.add('clickedColorEnglish');
+    }
+    buttonEnglish.addEventListener('click', e => {
+        if (isEnglish) {
+            buttonEnglish.classList.add('clickedColorEnglish');
+            buttonEnglish.classList.remove('defaultColorEnglish');
+        } else {
+            buttonEnglish.classList.add('defaultColorEnglish');
+            buttonEnglish.classList.remove('clickedColorEnglish');
+        }
+
+    });
+};
+
+// Russian Language //
+
+function changeRussian() {
+    const buttonRussian = document.getElementById("buttonRussian");
+    if (!isRussian) {
+        buttonRussian.classList.add('defaultColorRussian');
+    } else {
+        buttonRussian.classList.add('clickedColorRussian');
+    }
+    buttonRussian.addEventListener('click', e => {
+        if (isRussian) {
+            buttonRussian.classList.add('clickedColorRussian');
+            buttonRussian.classList.remove('defaultColorRussian');
+        } else {
+            buttonRussian.classList.add('defaultColorRussian');
+            buttonRussian.classList.remove('clickedColorRussian');
+        }
+
+    });
+};
+
+// Ukrainian Language //
+
+function changeUkrainian() {
+    const buttonUkrainian = document.getElementById("buttonUkrainian");
+    if (!isUkrainian) {
+        buttonUkrainian.classList.add('defaultColorUkrainian');
+    } else {
+        buttonUkrainian.classList.add('clickedColorUkrainian');
+    }
+    buttonUkrainian.addEventListener('click', e => {
+        if (isUkrainian) {
+            buttonUkrainian.classList.add('clickedColorUkrainian');
+            buttonUkrainian.classList.remove('defaultColorUkrainian');
+        } else {
+            buttonUkrainian.classList.add('defaultColorUkrainian');
+            buttonUkrainian.classList.remove('clickedColorUkrainian');
+        }
+
+    });
 };
 
 function changeHit() {
@@ -159,7 +223,13 @@ async function buttonClickHandler(buttonText) {
             change3D();
             changeHit();
 
-        } else if (buttonText === "Sound") {
+        } else if(buttonText === "Language") {
+            const language = new Language();
+            document.getElementById('menu').innerHTML = await language.getHtml();
+            changeEnglish();
+            changeRussian();
+            changeUkrainian();
+        }else if (buttonText === "Sound") {
             const sound = new Sound();
             document.getElementById('menu').innerHTML = await sound.getHtml();
             const volume = document.querySelector('.volume');

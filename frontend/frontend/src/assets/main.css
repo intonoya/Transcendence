@@ -496,6 +496,97 @@ canvas {
   color: #71357b;
   text-shadow: 1px 1px 1px #041b29;
 }
+/* English*/
+
+.button_setting_english.defaultColorEnglish {
+  font-size: 3rem;
+  color: #FFD4FB;
+  font-weight: bold;
+  letter-spacing: 4px;
+  transition: color 0.2s;
+}
+
+.button_setting_english.defaultColorEnglish:active {
+  transition: color 0s;
+  color: #71357b;
+  text-shadow: 1px 1px 1px #041b29;
+} 
+
+.button_setting_english.clickedColorEnglish {
+  font-size: 3rem;
+  color: #DFB579;
+  font-weight: bold;
+  letter-spacing: 4px;
+  transition: color 0.2s;
+}
+
+.button_setting_english.clickedColorEnglish:active {
+  transition: color 0s;
+  color: #71357b;
+  text-shadow: 1px 1px 1px #041b29;
+}
+
+/* Russian */
+
+.button_setting_russian.defaultColorRussian {
+  font-size: 3rem;
+  color: #FFD4FB;
+  font-weight: bold;
+  letter-spacing: 4px;
+  transition: color 0.2s;
+}
+
+.button_setting_russian.defaultColorRussian:active {
+  transition: color 0s;
+  color: #71357b;
+  text-shadow: 1px 1px 1px #041b29;
+}
+
+.button_setting_russian.clickedColorRussian {
+  font-size: 3rem;
+  color: #DFB579;
+  font-weight: bold;
+  letter-spacing: 4px;
+  transition: color 0.2s;
+}
+
+.button_setting_russian.clickedColorRussian:active {
+  transition: color 0s;
+  color: #71357b;
+  text-shadow: 1px 1px 1px #041b29;
+}
+
+/* Ukrainian */
+
+.button_setting_ukrainian.defaultColorUkrainian {
+  font-size: 3rem;
+  color: #FFD4FB;
+  font-weight: bold;
+  letter-spacing: 4px;
+  transition: color 0.2s;
+}
+
+.button_setting_ukrainian.defaultColorUkrainian:active {
+  transition: color 0s;
+  color: #71357b;
+  text-shadow: 1px 1px 1px #041b29;
+}
+
+.button_setting_ukrainian.clickedColorUkrainian {
+  font-size: 3rem;
+  color: #DFB579;
+  font-weight: bold;
+  letter-spacing: 4px;
+  transition: color 0.2s;
+}
+
+.button_setting_ukrainian.clickedColorUkrainian:active {
+  transition: color 0s;
+  color: #71357b;
+  text-shadow: 1px 1px 1px #041b29;
+}
+
+/* Hit */
 
 .button_setting_hit.defaultColorHit {
   font-size: 3rem;

@@ -169,11 +169,11 @@ CORS_ALLOWED_HEADERS = [
 CORS_ALLOWED_ORIGINS = [
     'http://10.19.219.108:8080',
     'http://10.19.219.108:8000',
-    'http://transcendence.am:8080',
+    # 'https://transcendence.am:8080',
 ] # If this is used, then not need to use `CORS_ALLOW_ALL_ORIGINS = True`
 CORS_ALLOWED_ORIGIN_REGEXES = [
     'http://10.19.219.108:8080',
     'http://10.19.219.108:8000',
-    'http://transcendence.am:8080',
+    # 'https://transcendence.am:8080',
 ]
 

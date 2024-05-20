@@ -36,12 +36,15 @@ export default class {
 
 	async getHtml() {
 		return `
-			<div class="row-1 nav_bar d-flex justify-content-between">
-				<div class="padding-2 mt-2">
-					<img src="/src/static/text_logo.png" alt="Ping Pong Logo" class="logo_image ms-3" style="width: 135px; height: auto; margin-top: -10px;">
-				</div>
-				<div id="auth_button" class="auth_button padding-2"></div>      
-			</div>
+		<div class="row-1 nav_bar d-flex justify-content-between">
+		<div class="padding-2 mt-2">
+			<a href="http://10.19.219.108:8080">
+				<img src="/src/static/text_logo.png" alt="Ping Pong Logo" class="logo_image ms-3" style="width: 135px; height: auto; margin-top: -10px;">
+			</a>
+		</div>
+		<div id="auth_button" class="auth_button padding-2"></div>      
+	</div>
+	
 		`;
 	}	
 }

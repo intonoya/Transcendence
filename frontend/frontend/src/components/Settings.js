@@ -7,6 +7,7 @@ export default class Settings {
         this.buttons = [
             new MenuButton("Sound"),
             new MenuButton("Customize"),
+            new MenuButton("Language"),
             new MenuButton("Main Menu"),
         ];
         // register(changeColor, false);

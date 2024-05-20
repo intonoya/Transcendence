@@ -54,6 +54,9 @@
             let isSkillActive = true;
             let isDefaultColor = true;
             let threeDPieceOfShit = false;
+            let isEnglish = true;
+            let isRussian = false;
+            let isUkrainian = false;
             function setColor() {           
                 if (isDefaultColor) {
                     gameColors.SetSpecialColor();
@@ -67,6 +70,15 @@
             }
             function setSkillActive() {
                 isSkillActive = !isSkillActive;
+            }
+            function setEnglish() {
+                isEnglish = !isLanguage;
+            }
+            function setRussian() {
+                isRussian = !isRussian;
+            }
+            function setUkrainian() {
+                isUkrainian = !isUkrainian;
             }
 			const server_url = 'https://10.19.219.108';
         </script>
