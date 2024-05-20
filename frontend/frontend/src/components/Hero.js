@@ -5,7 +5,9 @@ import StartModal from "./StartModal.js";
 
 export default class Hero {
     constructor() {
-        document.title = 'Main';
+        if (isEnglish) document.title = 'Main';
+        else if (isRussian) document.title = 'Главная';
+        else if (isUkrainian) document.title = 'Головна';
         this.menu = new Menu();
         this.about = new AboutUs();
         this.navbar = new Navbar();

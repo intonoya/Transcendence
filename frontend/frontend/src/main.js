@@ -166,7 +166,7 @@ async function buttonClickHandler(buttonText) {
         } else if (buttonText === "Main Menu" || buttonText === "Главное меню" || buttonText === "Головне меню") {
             const menu = new MainMenu();
             document.getElementById('menu').innerHTML = await menu.getHtml();
-            findContent("About Us");
+            findContent("About Us" || "О нас" || "Про нас");
 
         } else if (buttonText === "Game Mode" || buttonText === "Режим игры" || buttonText === "Режим гри") {
             const gameMode = new GameMode();
@@ -216,7 +216,7 @@ async function buttonClickHandler(buttonText) {
             deleteCookie('X-Access-Token');
             deleteCookie('X-Refresh-Token');
             navigateTo('/');
-        } else if (buttonText === "Customize") {
+        } else if (buttonText === "Customize" || buttonText === "Настроить" || buttonText === "Налаштувати") {
             const customize = new Customize();
             document.getElementById('menu').innerHTML = await customize.getHtml();
             changeFieldColor();

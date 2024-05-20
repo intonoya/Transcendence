@@ -21,7 +21,7 @@ export default class MainMenu {
         else if (isUkrainian) {
             this.buttons = [
                 new MenuButton("Одиночна гра", "StartGameVsBot()"),
-                new MenuButton("Мультиплеер"),
+                new MenuButton("Мультиплеєр"),
                 new MenuButton("Головне меню"),
             ];
             document.title = 'Режим гри';
