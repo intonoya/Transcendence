@@ -108,32 +108,89 @@ export default class LoginPage {
 	async getHtml() {
 
 
-
-		return `
-			
-			${await new Navbar().getHtml()}
-			<div class="table-results">
-				<div class="container">
-					<div class="row d-flex justify-content-center">
-						<div class="col-lg-6 col-md-5 d-flex justify-content-center align-items-center">
-							<div class="login p-4 rounded-4" style="background-color: #35264E; color:#71357b; letter-spacing: 3px; box-shadow: 0 0 0.25em #35264E;">
-								<h1 style="font-weight: bold;">Log In</h1>
-								<div>
-									<input
-										id="login"
-										type="text"
-										placeholder="Intra login"
-										class="ps-2 d-block border-0 text-black border-bottom rounded-1 mt-5 form-input"
-										style="width:15rem; height:40px; letter-spacing: 3px;"/>
-									<button
-										class="button_auth d-block btn btn-primary mt-2 mb-2 text-start"
-										style="width:15rem; height: 40px; letter-spacing:3px;">Auth</button>
+		if (isEnglish) {
+			return `
+				
+				${await new Navbar().getHtml()}
+				<div class="table-results">
+					<div class="container">
+						<div class="row d-flex justify-content-center">
+							<div class="col-lg-6 col-md-5 d-flex justify-content-center align-items-center">
+								<div class="login p-4 rounded-4" style="background-color: #35264E; color:#71357b; letter-spacing: 3px; box-shadow: 0 0 0.25em #35264E;">
+									<h1 style="font-weight: bold;">Log In</h1>
+									<div>
+										<input
+											id="login"
+											type="text"
+											placeholder="Intra login"
+											class="ps-2 d-block border-0 text-black border-bottom rounded-1 mt-5 form-input"
+											style="width:15rem; height:40px; letter-spacing: 3px;"/>
+										<button
+											class="button_auth d-block btn btn-primary mt-2 mb-2 text-start"
+											style="width:15rem; height: 40px; letter-spacing:3px;">Auth</button>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-		`;
+			`;
+		}
+		else if (isRussian) {
+			return `
+				
+				${await new Navbar().getHtml()}
+				<div class="table-results">
+					<div class="container">
+						<div class="row d-flex justify-content-center">
+							<div class="col-lg-6 col-md-5 d-flex justify-content-center align-items-center">
+								<div class="login p-4 rounded-4" style="background-color: #35264E; color:#71357b; letter-spacing: 3px; box-shadow: 0 0 0.25em #35264E;">
+									<h1 style="font-weight: bold;">Вход</h1>
+									<div>
+										<input
+											id="login"
+											type="text"
+											placeholder="Логин"
+											class="ps-2 d-block border-0 text-black border-bottom rounded-1 mt-5 form-input"
+											style="width:15rem; height:40px; letter-spacing: 3px;"/>
+										<button
+											class="button_auth d-block btn btn-primary mt-2 mb-2 text-start"
+											style="width:15rem; height: 40px; letter-spacing:3px;">Войти</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			`;
+		}
+		else if (isUkrainian) {
+			return `
+				
+				${await new Navbar().getHtml()}
+				<div class="table-results">
+					<div class="container">
+						<div class="row d-flex justify-content-center">
+							<div class="col-lg-6 col-md-5 d-flex justify-content-center align-items-center">
+								<div class="login p-4 rounded-4" style="background-color: #35264E; color:#71357b; letter-spacing: 3px; box-shadow: 0 0 0.25em #35264E;">
+									<h1 style="font-weight: bold;">Вхід</h1>
+									<div>
+										<input
+											id="login"
+											type="text"
+											placeholder="Логін"
+											class="ps-2 d-block border-0 text-black border-bottom rounded-1 mt-5 form-input"
+											style="width:15rem; height:40px; letter-spacing: 3px;"/>
+										<button
+											class="button_auth d-block btn btn-primary mt-2 mb-2 text-start"
+											style="width:15rem; height: 40px; letter-spacing:3px;">Увійти</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			`;
+		}
 	}
 }
