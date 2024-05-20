@@ -2,10 +2,24 @@ import MenuButton from "./MenuButton.js";
 
 export default class Language {
     constructor() {
-        document.title = 'Language';
-        this.buttons = [
-            new MenuButton("Main Menu"),
-        ];
+        if (isEnglish) {
+            document.title = 'Language';
+            this.buttons = [
+                new MenuButton("Main Menu"),
+            ];
+        }
+        else if (isRussian) {
+            document.title = 'Язык';
+            this.buttons = [
+                new MenuButton("Главное меню"),
+            ];
+        }
+        else if (isUkrainian) {
+            document.title = 'Мова';
+            this.buttons = [
+                new MenuButton("Головне меню"),
+            ];
+        }
     }
 
     async getHtml() {
@@ -21,7 +35,7 @@ export default class Language {
         const settingRussian = `
             <div class="d-flex justify-content-end">
                 <div class="back">
-                    <button id="buttonRussian" class="button_setting_russian mx-5" onclick="setRussian()">Russian</button>
+                    <button id="buttonRussian" class="button_setting_russian mx-5" onclick="setRussian()">Русский</button>
                 </div>
             </div>
         `;
@@ -29,7 +43,7 @@ export default class Language {
         const settingUkrainian = `
             <div class="d-flex justify-content-end">
                 <div class="back">
-                    <button id="buttonUkrainian" class="button_setting_ukrainian mx-5" onclick="setUkrainian()">Ukrainian</button>
+                    <button id="buttonUkrainian" class="button_setting_ukrainian mx-5" onclick="setUkrainian()">Українська</button>
                 </div>
             </div>
         `;

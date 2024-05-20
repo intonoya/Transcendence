@@ -72,13 +72,19 @@
                 isSkillActive = !isSkillActive;
             }
             function setEnglish() {
-                isEnglish = !isLanguage;
+                isEnglish = !isEnglish;
+                isRussian = false;
+                isUkrainian = false;
             }
             function setRussian() {
                 isRussian = !isRussian;
+                isEnglish = false;
+                isUkrainian = false;
             }
             function setUkrainian() {
                 isUkrainian = !isUkrainian;
+                isEnglish = false;
+                isRussian = false;
             }
 			const server_url = 'https://10.19.219.108';
         </script>

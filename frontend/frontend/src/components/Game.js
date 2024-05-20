@@ -4,9 +4,21 @@ import MenuButton from './MenuButton.js';
 
 export default class Game {
     constructor() {
-        document.title = 'Game';
-        this.button = new MenuButton("Exit", "StopGame()");
-        this.navbar = new Navbar();
+        if (isEnglish) {
+            document.title = 'Game';
+            this.button = new MenuButton("Exit", "StopGame()");
+            this.navbar = new Navbar();
+        }
+        else if (isRussian) {
+            document.title = 'Игра';
+            this.button = new MenuButton("Выход", "StopGame()");
+            this.navbar = new Navbar();
+        }
+        else if (isUkrainian) {
+            document.title = 'Гра';
+            this.button = new MenuButton("Вихід", "StopGame()");
+            this.navbar = new Navbar();
+        }
     }
 
     async getHtml() {

@@ -2,10 +2,24 @@ import MenuButton from "./MenuButton.js";
 
 export default class Customize {
     constructor() {
-        document.title = 'Customize';
-        this.buttons = [
-            new MenuButton("Main Menu"),
-        ];
+        if (isEnglish) {
+            document.title = 'Customize';
+            this.buttons = [
+                new MenuButton("Main Menu"),
+            ];
+        }
+        else if (isRussian) {
+            document.title = 'Настройки';
+            this.buttons = [
+                new MenuButton("Главное меню"),
+            ];
+        }
+        else if (isUkrainian) {
+            document.title = 'Налаштування';
+            this.buttons = [
+                new MenuButton("Головне меню"),
+            ];
+        }
     }
 
     async getHtml() {

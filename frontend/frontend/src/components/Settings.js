@@ -3,13 +3,33 @@ import MenuButton from "./MenuButton.js";
 
 export default class Settings {
     constructor() {
-        document.title = 'Settings';
-        this.buttons = [
-            new MenuButton("Sound"),
-            new MenuButton("Customize"),
-            new MenuButton("Language"),
-            new MenuButton("Main Menu"),
-        ];
+        if (isEnglish) {
+            document.title = 'Settings';
+            this.buttons = [
+                new MenuButton("Sound"),
+                new MenuButton("Customize"),
+                new MenuButton("Language"),
+                new MenuButton("Main Menu"),
+            ];
+        }
+        else if (isRussian) {
+            document.title = 'Настройки';
+            this.buttons = [
+                new MenuButton("Звук"),
+                new MenuButton("Настроить"),
+                new MenuButton("Язык"),
+                new MenuButton("Главное меню"),
+            ];
+        }
+        else if (isUkrainian) {
+            document.title = 'Налаштування';
+            this.buttons = [
+                new MenuButton("Звук"),
+                new MenuButton("Налаштувати"),
+                new MenuButton("Мова"),
+                new MenuButton("Головне меню"),
+            ];
+        }
         // register(changeColor, false);
     }
 

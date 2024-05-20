@@ -2,13 +2,33 @@ import MenuButton from "./MenuButton.js";
 
 export default class MainMenu {
     constructor() {
-        this.buttons = [
-            new MenuButton("New Game"),
-            new MenuButton("About Us"),
-            new MenuButton("Settings"),
-            new MenuButton("Chat"),
-        ];
-        document.title = 'Main';
+        if (isEnglish) {
+            this.buttons = [
+                new MenuButton("New Game"),
+                new MenuButton("About Us"),
+                new MenuButton("Settings"),
+                new MenuButton("Chat"),
+            ];
+            document.title = 'Main';
+        }
+        else if (isRussian) {
+            this.buttons = [
+                new MenuButton("Новая игра"),
+                new MenuButton("О нас"),
+                new MenuButton("Настройки"),
+                new MenuButton("Чат"),
+            ];
+            document.title = 'Главная';
+        }
+        else if (isUkrainian) {
+            this.buttons = [
+                new MenuButton("Нова гра"),
+                new MenuButton("Про нас"),
+                new MenuButton("Налаштування"),
+                new MenuButton("Чат"),
+            ];
+            document.title = 'Головна';
+        }
     }
 
     async getHtml() {

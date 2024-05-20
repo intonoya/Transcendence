@@ -17,14 +17,40 @@ function authButton() {
 	const auth_button = document.getElementById("auth_button");
 	
 	if (getCookie('username') != null) {
-		auth_button.innerHTML = `
-				<button class="btn btn-primary me-3">${getCookie('username')}</a>
-				<button id="button_auth" class="btn btn-primary button_auth me-3"">Logout</button>
-			`.trim();
+		if (isEnglish) {
+			auth_button.innerHTML = `
+					<button class="btn btn-primary me-3">${getCookie('username')}</a>
+					<button id="button_auth" class="btn btn-primary button_auth me-3"">Logout</button>
+				`.trim();
+		}
+		else if (isRussian) {
+			auth_button.innerHTML = `
+					<button class="btn btn-primary me-3">${getCookie('username')}</a>
+					<button id="button_auth" class="btn btn-primary button_auth me-3"">Выйти</button>
+				`.trim();
+		}
+		else if (isUkrainian) {
+			auth_button.innerHTML = `
+					<button class="btn btn-primary me-3">${getCookie('username')}</a>
+					<button id="button_auth" class="btn btn-primary button_auth me-3"">Вийти</button>
+				`.trim();
+		}
 	} else {
-		auth_button.innerHTML = `
-				<button id="button_auth" class="btn btn-primary me-3 button_auth"">Sign In</button>
-			`.trim();
+		if (isEnglish) {
+			auth_button.innerHTML = `
+					<button id="button_auth" class="btn btn-primary me-3 button_auth"">Sign In</button>
+				`.trim();
+		}
+		else if (isRussian) {
+			auth_button.innerHTML = `
+					<button id="button_auth" class="btn btn-primary me-3 button_auth"">Войти</button>
+				`.trim();
+		}
+		else if (isUkrainian) {
+			auth_button.innerHTML = `
+					<button id="button_auth" class="btn btn-primary me-3 button_auth"">Увійти</button>
+				`.trim();
+		}
 	};
 }
 

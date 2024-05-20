@@ -90,14 +90,18 @@ export { signIn };
 
 export default class LoginPage {
     constructor() {
-		document.title = 'Login';
+		if (isEnglish) document.title = 'Login';
+		else if (isRussian) document.title = 'Вход';
+		else if (isUkrainian) document.title = 'Вхід';
 
 		// Register the functions
 		register(getCookie);
 		register(setCookie);
 		//register(signIn);
 		register(loader_here, true);
-		this.button = new MenuButton("Exit");
+		if (isEnglish) this.button = new MenuButton("Exit");
+		else if (isRussian) this.button = new MenuButton("Выход");
+		else if (isUkrainian) this.button = new MenuButton("Вихід");
 
     }
 

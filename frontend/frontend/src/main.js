@@ -155,24 +155,24 @@ function changeHit() {
 async function buttonClickHandler(buttonText) {
     setTimeout(async () => {
         
-        if (buttonText === "New Game") {
+        if (buttonText === "New Game" || buttonText === "Новая игра" || buttonText === "Нова гра") {
             const newGame = new NewGameMenu();
             document.getElementById('menu').innerHTML = await newGame.getHtml();
             
-        } else if (buttonText === "Settings") {
+        } else if (buttonText === "Settings" || buttonText === "Настройки" || buttonText === "Налаштування") {
             const settings = new Settings();
             document.getElementById('menu').innerHTML = await settings.getHtml();
              
-        } else if (buttonText === "Main Menu") {
+        } else if (buttonText === "Main Menu" || buttonText === "Главное меню" || buttonText === "Головне меню") {
             const menu = new MainMenu();
             document.getElementById('menu').innerHTML = await menu.getHtml();
             findContent("About Us");
 
-        } else if (buttonText === "Game Mode") {
+        } else if (buttonText === "Game Mode" || buttonText === "Режим игры" || buttonText === "Режим гри") {
             const gameMode = new GameMode();
             document.getElementById('menu').innerHTML = await gameMode.getHtml();
 
-        } else if (buttonText === "Tournament") {
+        } else if (buttonText === "Tournament" || buttonText === "Турнир" || buttonText === "Турнір") {
             const tournament = new Tournament();
             document.getElementById('menu').innerHTML = await tournament.getHtml();
 
@@ -183,19 +183,19 @@ async function buttonClickHandler(buttonText) {
                 myAudio.muted = true;
             }
 
-        } else if (buttonText === "Multiplayer") {
+        } else if (buttonText === "Multiplayer" || buttonText === "Мультиплеер" || buttonText === "Мультіплеєр") {
             const multiplayer = new Multiplayer();
             document.getElementById('menu').innerHTML = await multiplayer.getHtml();
 
-        } else if (buttonText === "Single Game") {
+        } else if (buttonText === "Single Game" || buttonText === "Одиночная игра" || buttonText === "Одиночна гра") {
             navigateTo('/singlegame');
 
-        } else if (buttonText === "Exit") {
+        } else if (buttonText === "Exit" || buttonText === "Выход" || buttonText === "Вихід") {
             navigateTo('/');
 
-        } else if (buttonText === "Two Players") {
+        } else if (buttonText === "Two Players" || buttonText === "Два игрока" || buttonText === "Два гравці") {
             navigateTo('/twoplayers');
-        } else if (buttonText === "Chat") {
+        } else if (buttonText === "Chat" || buttonText === "Чат") {
             const chat = new GlobalChat();
             document.getElementById('menu').innerHTML = await chat.getHtml();
         } else if (buttonText === "Send") {
@@ -207,11 +207,11 @@ async function buttonClickHandler(buttonText) {
                 input.value = '';
                 this.socket.send(JSON.stringify(message));
             }
-        } else if (buttonText === "Start") {
+        } else if (buttonText === "Start" || buttonText === "Старт") {
             navigateTo('/tournament');
-        } else if (buttonText === "Sign In") {
+        } else if (buttonText === "Sign In" || buttonText === "Войти" || buttonText === "Увійти") {
 			navigateTo('/login');
-		} else if (buttonText === "Logout") {
+		} else if (buttonText === "Logout" || buttonText === "Выйти" || buttonText === "Вийти") {
             deleteCookie('username');
             deleteCookie('X-Access-Token');
             deleteCookie('X-Refresh-Token');
@@ -223,13 +223,13 @@ async function buttonClickHandler(buttonText) {
             change3D();
             changeHit();
 
-        } else if(buttonText === "Language") {
+        } else if(buttonText === "Language" || buttonText === "Язык" || buttonText === "Мова") {
             const language = new Language();
             document.getElementById('menu').innerHTML = await language.getHtml();
             changeEnglish();
             changeRussian();
             changeUkrainian();
-        }else if (buttonText === "Sound") {
+        }else if (buttonText === "Sound" || buttonText === "Звук") {
             const sound = new Sound();
             document.getElementById('menu').innerHTML = await sound.getHtml();
             const volume = document.querySelector('.volume');
@@ -241,7 +241,7 @@ async function buttonClickHandler(buttonText) {
                 myAudio.volume = x / width;
                 volume.style.width = x / width * 100 + '%';
             });  
-        } else if (buttonText === "Auth") {
+        } else if (buttonText === "Auth" || buttonText === "Авторизация" || buttonText === "Авторизація") {
             signIn();
             navigateTo('/');
             const loader = document.querySelector('.loader');
@@ -251,7 +251,7 @@ async function buttonClickHandler(buttonText) {
             }, 600);
             
 
-        } else if (buttonText === "Results") {
+        } else if (buttonText === "Results" || buttonText === "Результаты" || buttonText === "Результати") {
             navigateTo('/results');
         }
         const navbar = Navbar();
@@ -350,7 +350,7 @@ async function router() {
         для открытия модального окна
     */
 
-    findContent("About Us");
+    findContent("About Us" || "Про нас");
 	setTimeout(async () => {
 		authButton();
 	}, 700);
@@ -417,7 +417,7 @@ document.addEventListener('click', async e => {
     if (e.target.classList.contains('button_text')) {
         e.preventDefault();
         await buttonClickHandler(e.target.innerHTML);
-        findContent("About Us");
+        findContent("About Us" || "Про нас");
         audio.play();
     }
     if (e.target.classList.contains('button_auth')) {

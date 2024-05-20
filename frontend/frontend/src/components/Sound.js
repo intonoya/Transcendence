@@ -2,11 +2,27 @@ import MenuButton from "./MenuButton.js";
 
 export default class Music {
     constructor() {
-        document.title = 'Sound';
-        this.buttons = [
-            new MenuButton("Mute"),
-            new MenuButton("Main Menu"),
-        ];
+        if (isEnglish) {
+            document.title = 'Sound';
+            this.buttons = [
+                new MenuButton("Mute"),
+                new MenuButton("Main Menu"),
+            ];
+        }
+        else if (isRussian) {
+            document.title = 'Звук';
+            this.buttons = [
+                new MenuButton("Выключить звук"),
+                new MenuButton("Главное меню"),
+            ];
+        }
+        else if (isUkrainian) {
+            document.title = 'Звук';
+            this.buttons = [
+                new MenuButton("Вимкнути звук"),
+                new MenuButton("Головне меню"),
+            ];
+        }
     }
 
     async getHtml() {

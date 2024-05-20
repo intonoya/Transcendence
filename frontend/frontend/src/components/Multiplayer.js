@@ -2,11 +2,27 @@ import MenuButton from "./MenuButton.js";
 
 export default class Multiplayer {
     constructor() {
-        this.buttons = [
-            new MenuButton("Two Players", "StartGameVsPlayer()"),
-            new MenuButton("Online"),
-            new MenuButton("Main Menu"),
-        ];
+        if (isEnglish) {
+            this.buttons = [
+                new MenuButton("Two Players", "StartGameVsPlayer()"),
+                new MenuButton("Online"),
+                new MenuButton("Main Menu"),
+            ];
+        }
+        else if (isRussian) {
+            this.buttons = [
+                new MenuButton("Два игрока", "StartGameVsPlayer()"),
+                new MenuButton("Онлайн"),
+                new MenuButton("Главное меню"),
+            ];
+        }
+        else if (isUkrainian) {
+            this.buttons = [
+                new MenuButton("Два гравці", "StartGameVsPlayer()"),
+                new MenuButton("Онлайн"),
+                new MenuButton("Головне меню"),
+            ];
+        }
         document.title = 'Multiplayer';
     }
 
