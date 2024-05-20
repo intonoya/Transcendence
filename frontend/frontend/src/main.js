@@ -67,6 +67,18 @@ function change3D() {
 
 };
 
+// Deactivate other buttons//
+
+function deactivateOtherLanguageButtons(currentButton) {
+    const languageButtons = document.querySelectorAll('#buttonEnglish, #buttonRussian, #buttonUkrainian');
+    languageButtons.forEach(button => {
+        if (button !== currentButton) {
+            button.classList.remove('clickedColorEnglish', 'clickedColorRussian', 'clickedColorUkrainian');
+            button.classList.add('defaultColorEnglish', 'defaultColorRussian', 'defaultColorUkrainian');
+        }
+    });
+}
+
 // English Language //
 
 function changeEnglish() {
@@ -77,6 +89,7 @@ function changeEnglish() {
         buttonEnglish.classList.add('clickedColorEnglish');
     }
     buttonEnglish.addEventListener('click', e => {
+        deactivateOtherLanguageButtons(buttonEnglish);
         if (isEnglish) {
             buttonEnglish.classList.add('clickedColorEnglish');
             buttonEnglish.classList.remove('defaultColorEnglish');
@@ -98,6 +111,7 @@ function changeRussian() {
         buttonRussian.classList.add('clickedColorRussian');
     }
     buttonRussian.addEventListener('click', e => {
+        deactivateOtherLanguageButtons(buttonRussian);
         if (isRussian) {
             buttonRussian.classList.add('clickedColorRussian');
             buttonRussian.classList.remove('defaultColorRussian');
@@ -119,6 +133,7 @@ function changeUkrainian() {
         buttonUkrainian.classList.add('clickedColorUkrainian');
     }
     buttonUkrainian.addEventListener('click', e => {
+        deactivateOtherLanguageButtons(buttonUkrainian);
         if (isUkrainian) {
             buttonUkrainian.classList.add('clickedColorUkrainian');
             buttonUkrainian.classList.remove('defaultColorUkrainian');
@@ -216,7 +231,7 @@ async function buttonClickHandler(buttonText) {
             deleteCookie('X-Access-Token');
             deleteCookie('X-Refresh-Token');
             navigateTo('/');
-        } else if (buttonText === "Customize") {
+        } else if (buttonText === "Customize" || buttonText === "Настроить" || buttonText === "Налаштувати") {
             const customize = new Customize();
             document.getElementById('menu').innerHTML = await customize.getHtml();
             changeFieldColor();
