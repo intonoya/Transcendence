@@ -1,4 +1,3 @@
-
 function PrepareData() {
     document.getElementById("winnerBoard").innerHTML = "First to " + gameData.maxScore + " wins!";
     gameData.playerScore = 0;
@@ -15,13 +14,10 @@ function createScene()
 
     if(threeDPieceOfShit)
     {
-
         InitCamera3D(gameRender.WIDTH, gameRender.HEIGHT);
         gameRender.renderer.setSize(gameRender.WIDTH, gameRender.HEIGHT);
         currentCanvas.appendChild(gameRender.renderer.domElement);
         InitGameField();
-        //InitGround();
-        //InitGameTable();
         InitBall3D();
         InitPaddle3D(playerPaddle, (new THREE.MeshPhongMaterial(
             {
@@ -148,13 +144,6 @@ function InitLight() {
     lighting.pointLight.intensity = 0.9;
     lighting.pointLight.distance = 10000;
     gameRender.gameScene.add(lighting.pointLight);
-
-/*
-    Ix don't know why but this light is not working. always white screen. *sounds of tears*
-    
-    lighting.ambientLight = new THREE.AmbientLight(0x404040 );
-    lighting.ambientLight.intensity = 0.01; // Adjust the intensity to a lower value
-    gameRender.gameScene.add(lighting.ambientLight);*/
 }
 
 function InitGameField() {
@@ -181,7 +170,6 @@ function InitGameTable() {
     gameRender.table.Material =
         new THREE.MeshPhongMaterial(
             {
-                //white color
                 color: gameColors.GameBorderColor
             });
     gameRender.table.Mesh = new THREE.Mesh(

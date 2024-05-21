@@ -46,10 +46,7 @@ export default class Music {
                 ${html}
             </div>
         `).join('');
-
         const settingsHtml = html + menuHtml;
-
         return settingsHtml;
     }
-
 }

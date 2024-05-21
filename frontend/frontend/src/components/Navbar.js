@@ -2,16 +2,6 @@ import { register } from "../izolda.js";
 import { getCookie, deleteCookie } from "../utils.js";
 import { navigateTo } from "../main.js";
 
-//function logout() {
-//	deleteCookie('username');
-//	deleteCookie('X-Access-Token');
-//	deleteCookie('X-Refresh-Token');
-//	navigateTo('/');
-//}
-
-//function toLogin() {
-//	window.location.href = "api/v1/auth/intra/login/";
-//}
 
 function authButton() {
 	const auth_button = document.getElementById("auth_button");

@@ -25,27 +25,20 @@ export default class GlobalChat {
 	constructor () {
 		document.title = 'Global Chat';
 		this.socket = new WebSocket('ws://localhost:8000/ws/chat/global/');
-
 		this.socket.onopen = function(e) {
 			console.log('Connection established');
 		}
-
 		this.socket.onmessage = function(event) {
 			const data = JSON.parse(event.data);
 			putMessage(data);
 		}
-
 		this.socket.onclose = function(event) {
 			console.log('Connection closed');
 			console.log(event.code + ' ' + event.reason);
 		}
-
 		this.socket.onerror = function(error) {
 			console.log(`[error] ${error.message}`);
 		}
-
-		// register(createMessage);
-		// register(putMessage);
 	}
 
 	async getHtml() {

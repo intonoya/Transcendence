@@ -1,5 +1,3 @@
-// window.addEventListener('resize', onWindowResize, false);
-
 
 function onWindowResize() {
 	let scale = gameRender.SetWindowSize(window.innerWidth, window.innerHeight)

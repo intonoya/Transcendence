@@ -29,7 +29,6 @@ export default class MainMenu {
     }
 
     async getHtml() {
-
         const buttonsHtml = await Promise.all(this.buttons.map(button => button.getHtml()));
         const menuHtml = buttonsHtml.map(html => `
             <div class="row">

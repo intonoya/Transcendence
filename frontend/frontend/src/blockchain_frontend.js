@@ -215,7 +215,15 @@ function getAllResult() {
                 });
             }
             if (result === "") {
+              if (isEnglish) {
                 result = "<p class='tournament-name'>No results</p>";
+              }
+              else if(isRussian) {
+                result = "<p class='tournament-name'>Нет результатов</p>";
+              }
+              else if(isUkrainian) {
+                result = "<p class='tournament-name'>Немає результатів</p>";
+              }
             }
             document.getElementById("results").innerHTML = result;
             

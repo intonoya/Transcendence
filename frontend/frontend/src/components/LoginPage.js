@@ -4,27 +4,20 @@ import { register } from '../izolda.js';
 import { getCookie, setCookie } from '../utils.js';
 import MenuButton from './MenuButton.js';
 
-// Function to sign in with intra
-// Send a POST request to the backend with the login from 
-// the input and the code from the url
 async function signIn() {
 	const backend_url = "http://10.19.219.108:8000";
 	let login = document.getElementById('login').value;
 	let code = window.location.href.split('?code=')[1];
 
-	// If the code is empty, redirect to the intra login page
-	// to get the code
 	if (code == null || code == '') {
 		window.location.href = backend_url + '/api/v1/auth/intra/login/';
 		return;
 	}
-	// If the login is empty, alert the user
 	if (login == null || login == '') {
 		alert('Please enter your login');
 		return;
 	}
 
-	// Send the POST request
 	let res = await fetch(backend_url + '/api/v1/auth/intra/login/', {
 		method: 'POST',
 		headers: {
@@ -36,8 +29,6 @@ async function signIn() {
 		}),
 	});
 
-	// If the response is not ok, alert the user
-	// and redirect to the login page
 	if (!res.ok) {
 		const text = `
 		Something went wrong ${res.status}\n
@@ -49,14 +40,12 @@ async function signIn() {
 		return;
 	}
 
-	// If the response is ok, save the tokens and redirect to the home page
 	let data = await res.json();
 	if (data.access != null && data.refresh != null) {
 		setCookie('X-Access-Token', data.access, data.expires);
 		setCookie('X-Refresh-Token', data.refresh, data.expires);
 	}
 
-	// Get the user data
 	res = await fetch(backend_url + '/api/v1/auth/intra/me/', {
 		method: 'GET',
 		headers: {
@@ -65,16 +54,13 @@ async function signIn() {
 		},
 	});
 
-	// If the response is not ok, alert the user
 	if (!res.ok) {
 		alert('Something went wrong ' + res.status);
 		return;
 	}
 
-	// If the response is ok, save the user data
 	data = await res.json();
 	setCookie('username', data.username, 3600);
-
 }
 
 function loader_here() {
@@ -94,10 +80,8 @@ export default class LoginPage {
 		else if (isRussian) document.title = 'Вход';
 		else if (isUkrainian) document.title = 'Вхід';
 
-		// Register the functions
 		register(getCookie);
 		register(setCookie);
-		//register(signIn);
 		register(loader_here, true);
 		if (isEnglish) this.button = new MenuButton("Exit");
 		else if (isRussian) this.button = new MenuButton("Выход");
@@ -106,8 +90,7 @@ export default class LoginPage {
     }
 
 	async getHtml() {
-
-
+		
 		if (isEnglish) {
 			return `
 				
@@ -155,7 +138,7 @@ export default class LoginPage {
 											style="width:15rem; height:40px; letter-spacing: 3px;"/>
 										<button
 											class="button_auth d-block btn btn-primary mt-2 mb-2 text-start"
-											style="width:15rem; height: 40px; letter-spacing:3px;">Войти</button>
+											style="width:15rem; height: 40px; letter-spacing:3px;">Авторизация</button>
 									</div>
 								</div>
 							</div>
@@ -183,7 +166,7 @@ export default class LoginPage {
 											style="width:15rem; height:40px; letter-spacing: 3px;"/>
 										<button
 											class="button_auth d-block btn btn-primary mt-2 mb-2 text-start"
-											style="width:15rem; height: 40px; letter-spacing:3px;">Увійти</button>
+											style="width:15rem; height: 40px; letter-spacing:3px;">Авторизація</button>
 									</div>
 								</div>
 							</div>
