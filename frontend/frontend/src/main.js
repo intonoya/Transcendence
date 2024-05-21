@@ -251,7 +251,7 @@ async function buttonClickHandler(buttonText) {
             }, 600);
             
 
-        } else if (buttonText === "Results") {
+        } else if (buttonText === "Results" || buttonText === "Результаты" || buttonText === "Результати") {
             navigateTo('/results');
         }
         const navbar = Navbar();
