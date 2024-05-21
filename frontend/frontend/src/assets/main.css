@@ -148,7 +148,6 @@ button {
 
 .game {
   height: 93vh;
-  background-image: url('/src/static/re2-2.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -216,7 +215,6 @@ button {
 }
 
 .back {
-  background-image: url('/src/static/bg1.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -646,4 +644,26 @@ canvas {
 
 .scroll-result::-webkit-scrollbar {
   display: none;
+}
+
+/* Button Setting for Mobile*/
+#touch-controls {
+  position: fixed;
+  bottom: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.touch-button {
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 20px;
+  border: none;
+  text-align: center;
+  line-height: 60px;
 }

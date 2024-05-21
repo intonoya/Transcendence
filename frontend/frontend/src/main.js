@@ -66,7 +66,6 @@ function change3D() {
 };
 
 // English Language //
-
 function changeEnglish() {
     const buttonEnglish = document.getElementById("buttonEnglish");
     if (!isEnglish) {
@@ -87,7 +86,6 @@ function changeEnglish() {
 };
 
 // Russian Language //
-
 function changeRussian() {
     const buttonRussian = document.getElementById("buttonRussian");
     if (!isRussian) {
@@ -108,7 +106,6 @@ function changeRussian() {
 };
 
 // Ukrainian Language //
-
 function changeUkrainian() {
     const buttonUkrainian = document.getElementById("buttonUkrainian");
     if (!isUkrainian) {
@@ -129,7 +126,6 @@ function changeUkrainian() {
 };
 
 // Hit Button //
-
 function changeHit() {
     const buttonHit = document.getElementById("buttonHit");
     if (!isSkillActive) {
@@ -168,7 +164,7 @@ async function buttonClickHandler(buttonText) {
         } else if (buttonText === "Tournament" || buttonText === "Турнир" || buttonText === "Турнір") {
             const tournament = new Tournament();
             document.getElementById('menu').innerHTML = await tournament.getHtml();
-        } else if (buttonText === "Mute") {
+        } else if (buttonText === "Mute" || buttonText === "Выключить звук" || buttonText === "Вимкнути звук") {
             if (myAudio.muted) {
                 myAudio.muted = false;
             } else {
@@ -301,7 +297,7 @@ window.addEventListener('load', () => {
     
 });
 
-const audio = new Audio("/src/static/button_click2.mp3");
+const audio = new Audio("/src/static/button_click.mp3");
 const myAudio = document.getElementById('myAudio');
 myAudio.volume = 0.1;
 
@@ -328,6 +324,5 @@ window.addEventListener('load', () => {
 	document.body.append(script);
     
 });
-
 
 export { navigateTo, router };

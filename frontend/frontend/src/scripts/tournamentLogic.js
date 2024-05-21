@@ -105,7 +105,6 @@ function ReadInput() {
         tournament.StopTournament();
     }
     
-    
     let userInput = document.getElementById("userInput").value;
     const errorMessageContainer = document.getElementById("tournament");
     if(document.getElementById("errorMessage") !== null)
@@ -167,7 +166,6 @@ function ReadInput() {
         }
         return;
     }
-    
     if(tournament.tournamentName === "")
     {
         if (isEnglish) {
@@ -200,4 +198,3 @@ function ReadInput() {
         tournament.StartTournament();
     }
 }
-

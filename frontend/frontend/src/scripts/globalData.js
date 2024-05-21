@@ -7,20 +7,6 @@ class GameRender {
     playerField = new Rectangular();
     table = new Rectangular();
     ground = new Rectangular();
-    // SetWindowSize(newWidth, newHeight) {
-    //     let Wscale = (newWidth * 0.6) / this.WIDTH;
-    //     let Hscale = (newHeight * 0.4) / this.HEIGHT;
-    //     this.WIDTH = newWidth * 0.6;
-    //     this.HEIGHT = newHeight * 0.4;
-    //     if (Wscale < 1 || Hscale < 1) {
-    //         return Wscale < Hscale ? Wscale : Hscale;
-    //     }
-    //     this.renderer.setSize(newWidth, newHeight);
-    //     if (Wscale > 1 || Hscale > 1) {
-    //         return Wscale > Hscale ? Wscale : Hscale;
-    //     }
-    //     return 1;
-    // }
 }
 
 class Vector3 {
@@ -51,9 +37,6 @@ class Data {
     startCameraPosition = this.playerFieldHeight * 1.3;
     maxCameraPosition = 220;
     allTimeouts = [];
-    UpdateScreenData() {
-
-    }
 }
 
 class Lighting {
@@ -146,5 +129,4 @@ let animationId;
 let SpellEvent = new Event("SpellEvent");
 let botCollisionCounter = 0;
 let botTryCastSpell = false;
-
 let count = 0;

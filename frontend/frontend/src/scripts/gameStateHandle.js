@@ -21,7 +21,6 @@ function StartGameVsBot()
     setTimeout(() => {
         if(startPlaying)
             return;
-        gameData.UpdateScreenData();
         startPlaying = true;
         printNames();
         createScene();
@@ -54,7 +53,6 @@ function UpdateVsBot()
 function StartGameVsPlayer()
 {
     setTimeout(() => {
-        gameData.UpdateScreenData();
         createScene();
         UpdateVsPlayer();
         startPlaying = true;
