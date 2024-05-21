@@ -13,9 +13,7 @@ function StopGame()
     let gameCanvas = document.getElementById("gameCanvas");
     gameCanvas.removeChild(gameRender.renderer.domElement);
     cancelAnimationFrame(animationId);
-    // cancelIdleCallback(animationId);
     printScore();
-    //ChangeDivStateById("StopGame", false);
 }
 
 function StartGameVsBot()
@@ -25,8 +23,6 @@ function StartGameVsBot()
             return;
         gameData.UpdateScreenData();
         startPlaying = true;
-        //ChangeDivStateById("StopGame", true);
-        //PrepareData();
         printNames();
         createScene();
         UpdateVsBot();
@@ -59,8 +55,6 @@ function StartGameVsPlayer()
 {
     setTimeout(() => {
         gameData.UpdateScreenData();
-        //ChangeDivStateById("StopGame", true);
-        // PrepareData();
         createScene();
         UpdateVsPlayer();
         startPlaying = true;
@@ -84,5 +78,3 @@ function UpdateVsPlayer()
     }
     animationId = requestAnimationFrame(UpdateVsPlayer);
 }
-
-// export { StartGameVsBot };

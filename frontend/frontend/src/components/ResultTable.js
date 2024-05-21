@@ -1,11 +1,12 @@
 import MenuButton from "./MenuButton.js";
 import Navbar from "./Navbar.js";
 
-
 export default class ResultTable {
     constructor() {
         document.title = 'Results';
-        this.button = new MenuButton("Exit");
+        if (isEnglish) this.button = new MenuButton("Exit");
+        else if (isRussian) this.button = new MenuButton("Выход");
+        else if (isUkrainian) this.button = new MenuButton("Вихід");
         this.navbar = new Navbar();
     }
 
@@ -13,7 +14,6 @@ export default class ResultTable {
         
         const buttonHtml = this.button.getHtml();
         const button = buttonHtml.replace(/back/g, "");
-
         const result = getAllResult();
 
         return `
@@ -24,8 +24,7 @@ export default class ResultTable {
                     <div class="row d-flex justify-content-center align-items-center mt-5">
                         ${button}
                     </div>
-                </div>
-                
+                </div>       
             </div>
         `;
     }

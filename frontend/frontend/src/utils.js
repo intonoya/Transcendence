@@ -1,12 +1,12 @@
 import { register } from "./izolda.js";
 
-// Function to set a cookie
+// A Function to set a Cookies //
 function setCookie(name, value, seconds) {
 	let expires = new Date(new Date().getTime() + seconds * 1000).toUTCString();
 	document.cookie = name + "=" + escape(value) + "; expires=" + expires + "; path=/";
 }
 
-// Function to get a cookie
+// A Function to get Cookies //
 function getCookie(name) {
 	let items = document.cookie.split(";");
 	for (let i = 0; i < items.length; i++) {

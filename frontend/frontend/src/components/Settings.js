@@ -30,7 +30,6 @@ export default class Settings {
                 new MenuButton("Головне меню"),
             ];
         }
-        // register(changeColor, false);
     }
 
     async getHtml() {
@@ -43,8 +42,6 @@ export default class Settings {
         `).join('');
 
         const settingsHtml = menuHtml;
-
         return settingsHtml;
     }  
-
 }

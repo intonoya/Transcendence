@@ -4,7 +4,6 @@ function TurnOffById(input)
 }
 
 function printScore() {
-	//TODO add proper score
 	document.getElementById("scores").innerHTML = gameData.playerScore + "-" + gameData.opponentScore;
 }
 function WaitTime(method, time) {
@@ -61,20 +60,11 @@ function ChooseWinnerName(winner, loser) {
 		playerName = tournament.currentPair[winner].playerName;
 		if(tournament.winnerBranch) {
 			tournament.currentParticipants.push(tournament.currentPair[winner]);
-			/*tournament.winnersPool.push(tournament.currentPair[winner]);
-			if (tournament.currentPair[loser].isFirstRound &&
-				tournament.firstPlace === null) {
-				tournament.looserPool.push(tournament.currentPair[loser]);
-				tournament.looserPool[tournament.looserPool.length - 1].isFirstRound = false;
-			}
-			tournament.winnersPool[tournament.winnersPool.length - 1].isFirstRound = false;*/
 		}
 		else
 		{
 			tournament.looserPool.push(tournament.currentPair[winner]);
 		}
-		//ValidateFirstPlace(winner,loser);
-		//ValidateThirdPlace(winner, loser);
 	}
 	return playerName;
 }

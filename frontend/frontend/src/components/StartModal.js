@@ -6,5 +6,4 @@ export default class StartModal {
     async getHtml() {
         return ``;
     }
-
 }

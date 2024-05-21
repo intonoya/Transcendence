@@ -55,7 +55,6 @@ export default class Language {
         `).join('');
 
         const settingsHtml = settingEnglish + settingRussian + settingUkrainian + menuHtml;
-
         return settingsHtml;
     }
 

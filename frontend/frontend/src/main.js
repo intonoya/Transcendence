@@ -12,7 +12,6 @@ import Language from './components/Language.js';
 import Sound from './components/Sound.js';
 import ResultTable from './components/ResultTable.js';
 import GlobalChat from './components/GlobalChat.js';
-
 import { script } from './izolda.js';
 import { register } from './izolda.js';
 import Navbar from './components/Navbar.js';
@@ -26,7 +25,6 @@ function findContent(text) {
         }
     }
 }
-
 
 function changeFieldColor() {
     const button = document.getElementById("colorButton");
@@ -130,6 +128,8 @@ function changeUkrainian() {
     });
 };
 
+// Hit Button //
+
 function changeHit() {
     const buttonHit = document.getElementById("buttonHit");
     if (!isSkillActive) {
@@ -150,49 +150,37 @@ function changeHit() {
 
 };
 
-
-
 async function buttonClickHandler(buttonText) {
     setTimeout(async () => {
-        
         if (buttonText === "New Game" || buttonText === "Новая игра" || buttonText === "Нова гра") {
             const newGame = new NewGameMenu();
-            document.getElementById('menu').innerHTML = await newGame.getHtml();
-            
+            document.getElementById('menu').innerHTML = await newGame.getHtml();  
         } else if (buttonText === "Settings" || buttonText === "Настройки" || buttonText === "Налаштування") {
             const settings = new Settings();
-            document.getElementById('menu').innerHTML = await settings.getHtml();
-             
+            document.getElementById('menu').innerHTML = await settings.getHtml();   
         } else if (buttonText === "Main Menu" || buttonText === "Главное меню" || buttonText === "Головне меню") {
             const menu = new MainMenu();
             document.getElementById('menu').innerHTML = await menu.getHtml();
             findContent("About Us" || "О нас" || "Про нас");
-
         } else if (buttonText === "Game Mode" || buttonText === "Режим игры" || buttonText === "Режим гри") {
             const gameMode = new GameMode();
             document.getElementById('menu').innerHTML = await gameMode.getHtml();
-
         } else if (buttonText === "Tournament" || buttonText === "Турнир" || buttonText === "Турнір") {
             const tournament = new Tournament();
             document.getElementById('menu').innerHTML = await tournament.getHtml();
-
         } else if (buttonText === "Mute") {
             if (myAudio.muted) {
                 myAudio.muted = false;
             } else {
                 myAudio.muted = true;
             }
-
-        } else if (buttonText === "Multiplayer" || buttonText === "Мультиплеер" || buttonText === "Мультіплеєр") {
+        } else if (buttonText === "Multiplayer" || buttonText === "Мультиплеер" || buttonText === "Мультиплеєр") {
             const multiplayer = new Multiplayer();
             document.getElementById('menu').innerHTML = await multiplayer.getHtml();
-
         } else if (buttonText === "Single Game" || buttonText === "Одиночная игра" || buttonText === "Одиночна гра") {
             navigateTo('/singlegame');
-
         } else if (buttonText === "Exit" || buttonText === "Выход" || buttonText === "Вихід") {
             navigateTo('/');
-
         } else if (buttonText === "Two Players" || buttonText === "Два игрока" || buttonText === "Два гравці") {
             navigateTo('/twoplayers');
         } else if (buttonText === "Chat" || buttonText === "Чат") {
@@ -207,7 +195,7 @@ async function buttonClickHandler(buttonText) {
                 input.value = '';
                 this.socket.send(JSON.stringify(message));
             }
-        } else if (buttonText === "Start" || buttonText === "Старт") {
+        } else if (buttonText === "Start" || buttonText === "Начать" || buttonText === "Почати") {
             navigateTo('/tournament');
         } else if (buttonText === "Sign In" || buttonText === "Войти" || buttonText === "Увійти") {
 			navigateTo('/login');
@@ -222,7 +210,6 @@ async function buttonClickHandler(buttonText) {
             changeFieldColor();
             change3D();
             changeHit();
-
         } else if(buttonText === "Language" || buttonText === "Язык" || buttonText === "Мова") {
             const language = new Language();
             document.getElementById('menu').innerHTML = await language.getHtml();
@@ -249,51 +236,20 @@ async function buttonClickHandler(buttonText) {
             setTimeout(() => {
                 loader.classList.add('hidden');
             }, 600);
-            
-
         } else if (buttonText === "Results" || buttonText === "Результаты" || buttonText === "Результати") {
             navigateTo('/results');
         }
         const navbar = Navbar();
         await navbar.getHtml();
-
-    }, 400);
-    
+    }, 400);  
 }
 
-
-/*
-    функция navigateTo принимает url и использует history.pushState для 
-    обновления URL-адреса в адресной строке браузера без 
-    перезагрузки страницы.
-
-    После этого вызывается функция router, которая обновляет содержимое
- */
 async function navigateTo(url) {
     history.replaceState(null, null, url);
     await router();
 };
 
-/*
-
-    функция router сопоставляет текущий URL-адрес с каждым маршрутом
-    и вызывает функцию getHtml для соответствующего представления.
-    Затем она обновляет содержимое элемента app в index.html
-    с помощью полученного HTML-кода.
-
-
-*/
-
-
 async function router() {
-
-	
-    /* 
-        routes - массив объектов, содержащих путь и представление
-        создаем массив routes и заполняем его объектами, содержащими строку "путь" 
-        и представление "класс или в нашем случае компонент"
-    */
-
     const routes = [
         { path: '/', view: Hero },
         { path: '/singlegame', view: Game },
@@ -302,14 +258,7 @@ async function router() {
         { path: '/login', view: LoginPage },
         { path: '/results', view: ResultTable },
     ];
-
-    /* 
-        map - метод массива, который создает новый массив, применяя к каждому элементу callback-функцию
-        создаем новый массив potentialMatches, который содержит объекты, route (это объект из массива routes) и 
-        isMatch (это bool сравнение текущего пути (location.pathname) с путем из объекта route)
-
-    */
-
+    
     const potentialMatches = routes.map(route => {
         return {
             route: route,
@@ -317,13 +266,6 @@ async function router() {
         };
     });
     
-    /* 
-        find - метод массива, который возвращает значение первого найденного в массиве элемента, 
-        которое удовлетворяет условию переданному в callback-функции
-        создаем переменную match, которая содержит объект из массива potentialMatches, у которого isMatch = true
-        если такого объекта нет, то создаем объект с route = routes[0] и isMatch = true
-    */
-
     let match = potentialMatches.find(potentialMatch => potentialMatch.isMatch);
     if (!match) {
         match = {
@@ -333,65 +275,25 @@ async function router() {
 
     }
 
-    /* 
-        создаем объект view, который содержит представление из объекта match
-        и обновляем содержимое элемента app в index.html с помощью полученного HTML-кода
-    */
-
     const view = new match.route.view();
     document.getElementById('app').innerHTML = await view.getHtml();
     
-	
-
-    
-
-    /* после рендеринга дома бежим циклом по всем кнопкам которые получаем с помощью querySelectorAll
-        и если текст кнопки содержит "About Us", то добавляем атрибуты data-bs-toggle и data-bs-target
-        для открытия модального окна
-    */
-
     findContent("About Us" || "Про нас");
 	setTimeout(async () => {
 		authButton();
 	}, 700);
 };
 
-/* 
-    добавляем обработчик события popstate, который вызывает функцию router
-    и обновляет содержимое элемента app в index.html с помощью полученного HTML-кода
-
-    indow.addEventListener('popstate', router);: Это добавляет слушатель события popstate 
-    для объекта window. Событие popstate возникает, когда изменяется 
-    история браузера, например, при нажатии на кнопки "назад" или "вперед". 
-    Когда событие происходит, вызывается функция router, которая, 
-    вероятно, обрабатывает изменения состояния истории.
-*/
-
 window.addEventListener('popstate', router);
-
-/*
-    добавляем обработчик события DOMContentLoaded, который вызывает функцию router
-    и обновляет содержимое элемента app в index.html с помощью полученного HTML-кода
-
-    Событие DOMContentLoaded происходит, когда загружается весь HTML и построена начальная 
-    структура документа, но до завершения загрузки всех внешних ресурсов (
-        картинок, стилей и т.д.). Когда событие происходит, вызывается функция router(), 
-        предположительно для начальной инициализации страницы.
-*/
 
 document.addEventListener('DOMContentLoaded', () => {
     router();
 });
 
-
-
-// для модального окна в начале
 document.addEventListener('DOMContentLoaded', function () {
     var myModal = new bootstrap.Modal(document.getElementById('myModal'));
     myModal.show();
 });
-
-//Loader 
 
 window.addEventListener('load', () => {
     const loader = document.querySelector('.loader');
@@ -399,15 +301,9 @@ window.addEventListener('load', () => {
     
 });
 
-
-
-//для звука кнопки
 const audio = new Audio("/src/static/button_click2.mp3");
-
 const myAudio = document.getElementById('myAudio');
 myAudio.volume = 0.1;
-
-// authButton();
 
 document.addEventListener('click', async e => {
     if (e.target.className === 'link') {

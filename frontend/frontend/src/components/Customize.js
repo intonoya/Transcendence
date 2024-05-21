@@ -99,15 +99,12 @@ export default class Customize {
         const settingFieldHtml = isEnglish ? settingFieldEnglish : isRussian ? settingFieldRussian : settingFieldUkrainian;
         const superHitHtml = isEnglish ? superHitEnglish : isRussian ? superHitRussian : superHitUkrainian;
         const setting3Dhtml = isEnglish ? setting3DEnglish : isRussian ? setting3DRussian : setting3DUkrainian;
-
         const menuHtml = buttonsHtml.map(html => `
             <div class="d-flex justify-content-end">
                 ${html}
             </div>
         `).join('');
-
         const settingsHtml = settingFieldHtml + setting3Dhtml + superHitHtml + menuHtml;
-
         return settingsHtml;
     }
 }
