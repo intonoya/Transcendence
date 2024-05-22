@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'drf_yasg',
     'django_async_orm',
     'rest_framework',
-    'chat.apps.ChatConfig',
     'intrauth.apps.IntrauthConfig',
     'channels',
 ]

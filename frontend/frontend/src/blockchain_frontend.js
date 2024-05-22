@@ -120,9 +120,6 @@ function setResult(newPlayer, newResult, nameTournament) {
         });
 }
 
-// Пример вызова функции setResult
-// setResult("Vova", 42, "first");
-
 function getResultPlayer(playerName, nameTournament) {
     contract.methods.getResultPlayer(playerName, nameTournament).call()
         .then(function(result) {
@@ -232,8 +229,3 @@ function getAllResult() {
 			console.error(error);
 		});
 }
-
-//getResultTournament("first")
-//getAllResult()
-// getResultPlayer("Vova", "first")
-// export { getAllResult };

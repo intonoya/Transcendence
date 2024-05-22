@@ -1,4 +1,3 @@
-
 function onWindowResize() {
 	let scale = gameRender.SetWindowSize(window.innerWidth, window.innerHeight)
 	gameRender.gameCamera.aspect = gameRender.WIDTH / gameRender.HEIGHT;
@@ -15,6 +14,4 @@ function ScaleScene(scaleFactor) {
 	gameRender.gameCamera.position.z =
 		gameRender.gameCamera.position.z < gameData.maxCameraPosition ? 
 			gameData.maxCameraPosition : gameRender.gameCamera.position.z;
-	
 }
-

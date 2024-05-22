@@ -11,7 +11,7 @@ import Customize from './components/Customize.js';
 import Language from './components/Language.js';
 import Sound from './components/Sound.js';
 import ResultTable from './components/ResultTable.js';
-import GlobalChat from './components/GlobalChat.js';
+// import GlobalChat from './components/GlobalChat.js';
 import { script } from './izolda.js';
 import { register } from './izolda.js';
 import Navbar from './components/Navbar.js';
@@ -179,9 +179,6 @@ async function buttonClickHandler(buttonText) {
             navigateTo('/');
         } else if (buttonText === "Two Players" || buttonText === "Два игрока" || buttonText === "Два гравці") {
             navigateTo('/twoplayers');
-        } else if (buttonText === "Chat" || buttonText === "Чат") {
-            const chat = new GlobalChat();
-            document.getElementById('menu').innerHTML = await chat.getHtml();
         } else if (buttonText === "Send") {
             const input = document.querySelector('.chat-input');
             if (input.value !== '') {

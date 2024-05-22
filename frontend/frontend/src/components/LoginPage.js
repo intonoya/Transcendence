@@ -1,5 +1,4 @@
 import Navbar from './Navbar.js';
-import GlobalChat from './GlobalChat.js';
 import { register } from '../izolda.js';
 import { getCookie, setCookie } from '../utils.js';
 import MenuButton from './MenuButton.js';
