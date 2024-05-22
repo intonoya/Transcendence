@@ -11,7 +11,6 @@ import Customize from './components/Customize.js';
 import Language from './components/Language.js';
 import Sound from './components/Sound.js';
 import ResultTable from './components/ResultTable.js';
-// import GlobalChat from './components/GlobalChat.js';
 import { script } from './izolda.js';
 import { register } from './izolda.js';
 import Navbar from './components/Navbar.js';
