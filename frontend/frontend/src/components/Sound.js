@@ -27,7 +27,7 @@ export default class Music {
 
     async getHtml() {
         const buttonsHtml = await Promise.all(this.buttons.map(button => button.getHtml()));
-        const html = ` 
+        const htmlEnglish = ` 
             <div class="d-flex justify-content-end mb-2">
                 <div class="back">
                     <p class="button_volume mx-5">Volume</p>
@@ -41,6 +41,36 @@ export default class Music {
                 </div>
             </div>
         `;
+        const htmlRussian = `
+            <div class="d-flex justify-content-end mb-2">
+                <div class="back">
+                    <p class="button_volume mx-5">Громкость</p>
+                </div>
+            </div>
+            <div class="row ms-5 me-1 mb-5">
+                <div class="volume_box">
+                    <div class="volume">
+
+                    </div>
+                </div>
+            </div>
+        `;
+        const htmlUkrainian = `
+            <div class="d-flex justify-content-end mb-2">
+                <div class="back">
+                    <p class="button_volume mx-5">Гучність</p>
+                </div>
+            </div>
+            <div class="row ms-5 me-1 mb-5">
+                <div class="volume_box
+                ">
+                    <div class="volume">
+
+                    </div>
+                </div>
+            </div>
+        `;
+        const html = isEnglish ? htmlEnglish : isRussian ? htmlRussian : htmlUkrainian;
         const menuHtml = buttonsHtml.map(html => `
             <div class="d-flex justify-content-end">
                 ${html}

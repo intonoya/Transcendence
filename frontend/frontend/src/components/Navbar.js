@@ -54,7 +54,7 @@ export default class {
 		return `
 		<div class="row-1 nav_bar d-flex justify-content-between">
 		<div class="padding-2 mt-2">
-			<a href="https://10.19.219.108">
+			<a href="http://10.19.219.108:8080">
 				<img src="/src/static/text_logo.png" alt="Ping Pong Logo" class="logo_image ms-3" style="width: 135px; height: auto; margin-top: -10px;">
 			</a>
 		</div>
