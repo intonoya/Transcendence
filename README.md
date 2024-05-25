@@ -8,9 +8,14 @@ The website allows users to engage in Pong matches with other players online. It
 
 ## Project Rules and Constraints
 
-1. Backend:
-2. Frontend:
-3. Single-Page Application:
-4. Browser Compatibility:
-5. Docker Deployment:
-6. 
+- **Backend:**
+  - The Backend is written on Python;
+  - Django framework is used;
+- **Frontend:**
+    - The Frontend is written on Vanilla Javascript;
+    - Bootstrap toolkit is used;
+- **Single-Page Application:**
+  - The website is a single-page application (SPA);
+  - Users can use the Back and Forward buttons of the browser without leaving the SPA;
+- **Browser Compatibility:**
+- **Docker Deployment:**
